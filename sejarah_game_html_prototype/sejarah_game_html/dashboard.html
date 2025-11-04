@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard - Sejarah Game Populer</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #f5f5f5;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+    }
+    header.site-header {
+      background-color: #161b22;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+    .site-header .brand {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    nav a {
+      color: #f5f5f5;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+    nav a:hover {
+      color: #00b4d8;
+    }
+    main.container {
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #00b4d8;
+      border-bottom: 2px solid #00b4d8;
+      padding-bottom: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #30363d;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #161b22;
+    }
+    tr:nth-child(even) {
+      background-color: #1c2128;
+    }
+    tr:hover {
+      background-color: #21262d;
+    }
+    footer {
+      background-color: #161b22;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header.site-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      table, th, td {
+        font-size: 0.85em;
+      }
+      th, td {
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">Sejarah Game Populer</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <h2>Selamat Datang di Dashboard</h2>
+      <p>Berikut adalah contoh data untuk simulasi CRUD pada tema “Sejarah Game Populer”.</p>
+    </section>
+
+    <section class="data-game">
+      <h2>Data Game Populer</h2>
+      <table>
+        <tr>
+          <th>No</th>
+          <th>Nama Game</th>
+          <th>Tahun Rilis</th>
+          <th>Genre</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Valorant</td>
+          <td>2020</td>
+          <td>FPS Taktis</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>PUBG</td>
+          <td>2017</td>
+          <td>Battle Royale</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Mobile Legends</td>
+          <td>2016</td>
+          <td>MOBA</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="data-developer">
+      <h2>Data Developer Game</h2>
+      <table>
+        <tr>
+          <th>No</th>
+          <th>Nama Developer</th>
+          <th>Asal Negara</th>
+          <th>Game Terkenal</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Riot Games</td>
+          <td>Amerika Serikat</td>
+          <td>Valorant, League of Legends</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Tencent</td>
+          <td>Tiongkok</td>
+          <td>PUBG Mobile, Arena of Valor</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Moonton</td>
+          <td>Tiongkok</td>
+          <td>Mobile Legends: Bang Bang</td>
+        </tr>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sejarah Game Populer | Dashboard Praktikum Web</p>
+  </footer>
+</body>
+</html>

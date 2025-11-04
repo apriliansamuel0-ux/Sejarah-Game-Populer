@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sejarah Game Populer - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="tampilkanPesan()">
+  <header class="site-header">
+    <div class="brand" id="brandTitle">Sejarah Game Populer</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <button onclick="konfirmasiKeluar()">Logout</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Selamat datang di Sejarah Game Populer</h1>
+      <p>Ringkasan singkat sejarah game-game populer. Klik <strong>Selengkapnya</strong> untuk baca lebih lanjut.</p>
+    </section>
+
+    <section class="game-grid">
+      <article class="card">
+        <img src="img/valorant.jpg" alt="Valorant">
+        <h3>Valorant</h3>
+        <p>Valorant adalah permainan FPS taktis yang dikembangkan oleh Riot Games. Diluncurkan pada 2020, Valorant memadukan strategi tim dan kemampuan unik karakter.</p>
+        <a href="#" class="btn">Selengkapnya</a>
+      </article>
+
+      <article class="card">
+        <img src="img/pubg.jpg" alt="PUBG">
+        <h3>PUBG</h3>
+        <p>PUBG (PlayerUnknown's Battlegrounds) adalah pelopor battle royale modern yang populer sejak 2017 dan membawa genre ini ke panggung global.</p>
+        <a href="#" class="btn">Selengkapnya</a>
+      </article>
+
+      <article class="card">
+        <img src="img/mobilelegends.jpg" alt="Mobile Legends">
+        <h3>Mobile Legends</h3>
+        <p>Mobile Legends: Bang Bang adalah MOBA mobile yang sangat populer di Asia Tenggara, dirilis oleh Moonton dan ramai dimainkan sejak 2016.</p>
+        <a href="#" class="btn">Selengkapnya</a>
+      </article>
+    </section>
+  </main>
+
+  <!-- Bagian DOM Manipulation -->
+  <section>
+    <h2 id="judul">Sejarah Game Populer</h2>
+    <p id="waktu"></p>
+    <button id="btnUbah" onclick="ubahJudul()">Ubah Judul</button>
+    <p id="jumlahGame"></p>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Sejarah Game Populer. Gambar: sumber resmi game (letakkan file gambar di folder <code>img/</code>).</p>
+  </footer>
+
+  <!-- Snackbar -->
+  <div id="snackbar">Judul berhasil diubah!</div>
+
+  <!-- CSS Snackbar -->
+  <style>
+  #snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 14px;
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 16px;
+    z-index: 1;
+  }
+  #snackbar.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  </style>
+
+  <!-- JavaScript DOM & Snackbar -->
+  <script>
+    // a. Mengubah teks judul (innerText)
+    function ubahJudul() {
+      document.getElementById("judul").innerText = "Selamat Datang di Dunia Game Populer!";
+      showToast();
+    }
+
+    // b. Menampilkan waktu saat ini (innerHTML)
+    const waktuSekarang = new Date().toLocaleTimeString();
+    document.getElementById("waktu").innerHTML = "Waktu saat ini: " + waktuSekarang;
+
+    // c. Menampilkan jumlah game (textContent)
+    const totalGame = 3;
+    document.getElementById("jumlahGame").textContent = "Jumlah game yang ditampilkan: " + totalGame;
+
+    // Fungsi untuk menampilkan snackbar
+    function showToast() {
+      const x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(() => { x.className = x.className.replace("show", ""); }, 3000);
+    }
+
+    // ========== 🔹 TUGAS 4: PopUp Box + Event 🔹 ==========
+
+    // 1️⃣ Alert saat halaman dimuat
+    function tampilkanPesan() {
+      alert("Selamat datang di Website Sejarah Game Populer!");
+    }
+
+    // 2️⃣ Confirm Box untuk logout
+    function konfirmasiKeluar() {
+      const yakin = confirm("Apakah kamu yakin ingin keluar?");
+      if (yakin) {
+        window.location.href = "login.html";
+      } else {
+        alert("Kamu membatalkan logout.");
+      }
+    }
+
+    // 3️⃣ Event: klik pada judul (brand)
+    document.getElementById("brandTitle").addEventListener("click", function() {
+      alert("Kamu menekan judul website!");
+    });
+
+    // 4️⃣ Event: hover pada tombol ubah judul
+    const tombolUbah = document.getElementById("btnUbah");
+    tombolUbah.addEventListener("mouseover", function() {
+      tombolUbah.style.backgroundColor = "blue";
+      tombolUbah.style.color = "white";
+    });
+    tombolUbah.addEventListener("mouseout", function() {
+      tombolUbah.style.backgroundColor = "";
+      tombolUbah.style.color = "";
+    });
+
+    // 5️⃣ Event tambahan: tekan tombol keyboard (key event)
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        alert("Kamu menekan tombol ENTER!");
+      }
+    });
+  </script>
+
+</body>
+</html>
