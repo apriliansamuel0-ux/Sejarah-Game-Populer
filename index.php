@@ -1,50 +1,20 @@
 <?php
-include 'koneksi.php';
 
-$q = mysqli_query($koneksi, "SELECT * FROM games");
-?>
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Daftar Game Populer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+define('LARAVEL_START', microtime(true));
 
-<header class="site-header">
-    <div class="brand">GamePopuler</div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="dashboard.php">Data Game</a>
-        <a href="game/add_game.php">Tambah Data</a>
-    </nav>
-</header>
+// Determine if the application is in maintenance mode...
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
 
-<div class="container">
+// Register the Composer autoloader...
+require __DIR__.'/../vendor/autoload.php';
 
-    <div class="hero">
-        <h1>Daftar Game</h1>
-    </div>
+// Bootstrap Laravel and handle the request...
+/** @var Application $app */
+$app = require_once __DIR__.'/../bootstrap/app.php';
 
-    <div class="game-grid">
-
-        <?php while($g = mysqli_fetch_assoc($q)) : ?>
-            <div class="card">
-<img src="<?= $g['gambar']; ?>" alt="<?= $g['nama_game']; ?>">
-                <h3><?= $g['nama_game']; ?></h3>
-                <p><?= $g['deskripsi']; ?></p>
-            </div>
-        <?php endwhile; ?>
-
-    </div>
-
-</div>
-
-<footer class="site-footer">
-    Dibuat oleh Sam
-</footer>
-
-</body>
-</html>
+$app->handleRequest(Request::capture());
